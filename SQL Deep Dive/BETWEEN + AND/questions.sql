@@ -5,7 +5,16 @@
 * Write your query here
 */
 
+SELECT * FROM customers
+WHERE income < 50000 and (age BETWEEN 30 AND 50);
+
+
 -- What is the average income between the ages of 20 and 50? (Including 20 and 50)
 /*
 * Write your query here
 */
+
+SELECT avg(income) FROM customers
+WHERE (age BETWEEN 20 AND 50);
+
+Result: 59361.925908612832

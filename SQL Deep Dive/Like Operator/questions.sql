@@ -5,7 +5,10 @@
 * Sample output: https://imgur.com/vXs4093
 * Use EXTRACT (YEAR FROM AGE(birth_date)) we will learn about this in later parts of the course
 */
-SELECT ..., EXTRACT (YEAR FROM AGE(birth_date)) as "age" FROM employees;
+
+SELECT EXTRACT (YEAR FROM AGE(birth_date)) as "age", first_name, last_name, emp_no 
+FROM employees
+WHERE first_name LIKE 'M%';
 
 
 /*
@@ -15,6 +18,8 @@ SELECT ..., EXTRACT (YEAR FROM AGE(birth_date)) as "age" FROM employees;
 * Expected output: 1846
 */
 
+SELECT COUNT(emp_no) from employees
+where first_name LIKE 'A%r';
                                                   
 /*
 * DB: Store
@@ -23,7 +28,8 @@ SELECT ..., EXTRACT (YEAR FROM AGE(birth_date)) as "age" FROM employees;
 * Expected output: 4211 
 */
 
-
+SELECT count(customerid) FROM customers
+WHERE CAST(zip AS TEXT) LIKE '%2%';
 
 /*
 * DB: Store
@@ -32,6 +38,8 @@ SELECT ..., EXTRACT (YEAR FROM AGE(birth_date)) as "age" FROM employees;
 * Expected output: 109 
 */
 
+SELECT count(customerid) FROM customers
+WHERE CAST(zip AS TEXT) LIKE '2_1%';
 
 /*
 * DB: Store
@@ -41,3 +49,6 @@ SELECT ..., EXTRACT (YEAR FROM AGE(birth_date)) as "age" FROM employees;
 * Expected output: https://imgur.com/AVe6G4c
 */
 
+SELECT COALESCE(state, 'No State') AS State
+FROM customers
+WHERE CAST(phone AS TEXT) LIKE '302%';
